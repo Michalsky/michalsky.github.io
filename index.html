@@ -1,7 +1,33 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			path1tent="width=device-width,
+					initial-scale=1.0"/>
+		<title>D3.js image() Function</title>
+	</head>
+	<style></style>
+	<body>
+		<script src=
+"https://d3js.org/d3.v4.min.js">
+		</script>
+		<script src=
+"https://d3js.org/d3-dsv.v1.min.js">
+		</script>
+		<script src=
+"https://d3js.org/d3-fetch.v1.min.js">
+		</script>
+
+		<script>
+			d3.image(
+`https://github.com/Michalsky/michalsky.github.io/blob/main/pokemon/images/279.png`,
+			{ crossOrigin: "anonymous" }).then((img) => {
+				document.body.append("Image using d3.image()");
+				document.body.append(img);
+			});
+		</script>
+	</body>
 </html>
+
