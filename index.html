@@ -18,11 +18,12 @@
 			  border-color: #FAEEEE;
 				height: 200px;
 				width: 200px;
-				background-image: url('profile-background.jpeg');}
+				background-image: url('profile-background.jpeg');
+			  z-index: 10;}
 			#bulbasaur{
-				background-image: "/pokemon/images/1.png";
 				height: 200px;
 				width: 200px;
+				z-index: 20;
 			}
 			.myCharmanderDiv{
 				border: 5px outset red;
@@ -48,7 +49,7 @@
 	<body>
 		<div class=".myBackground">
 			<div class=".myBulbasaurDiv">
-				<input type="image" id="bulbasaur" onclick="location.href='bulbasaur.html';"/>
+				<input type="image" id="bulbasaur" onclick="location.href='bulbasaur.html';" src="/pokemon/images/1.png"/>
 			</div>
 			<div class=".myCharmanderDiv">
 				<input type="image" src="/pokemon/images/4.png" onclick="location.href='charmander.html';" height="200" width="200" id="charmander"/>
