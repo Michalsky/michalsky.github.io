@@ -10,21 +10,23 @@
 		<title>D3.js image() Function</title>
 	</head>
 	<style></style>
-	<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" id="bulbasaur">
-  	<image href="/pokemon/images/1.png" height="200" width="200"/>
-	</svg>
-	<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" id="charmander">
-  	<image href="/pokemon/images/4.png" height="200" width="200"/>
-	</svg>
-	<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" id="squirtle">
-  	<image href="/pokemon/images/7.png" height="200" width="200"/>
+	<svg width="700" height="200" xmlns="http://www.w3.org/2000/svg">
+		<group id="bulbasaur">
+  		<image href="/pokemon/images/1.png" height="200" width="200" />
+		</group>
+		<group id="charmander">
+			<image href="/pokemon/images/4.png" height="200" width="200"/>
+		</group>
+		<group id="squirtle">
+			<image href="/pokemon/images/7.png" height="200" width="200"/>
+		</group>
 	</svg>
 	<script>
 		var bulbasaur = d3.select("#bulbasaur");
 		var charmander = d3.select("#charmander");
 		var squirtle = d3.select("#squirtle");
-		charmander.attr("transform", "translate(400,0)");
-		squirtle.attr("transform", "translate(600,0)");
+		charmander.attr("transform", "translate(250,0)");
+		squirtle.attr("transform", "translate(500,0)");
 	</script>
 	</body>
 </html>
