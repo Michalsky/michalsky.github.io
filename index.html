@@ -13,13 +13,13 @@
 
 	<input type="image" src="/pokemon/images/1.png" onclick="location.href='bulbasaur.html';" height="200" width="200" id="bulbasaur" border="5px solid #0000ffff"/>
 	<input type="image" src="/pokemon/images/4.png" onclick="location.href='charmander.html';" height="200" width="200" id="charmander" border="5px solid #0000ffff"/>
-	<input type="image" src="/pokemon/images/7.png" onclick="location.href='squirtle.html';" height="200" width="200" id="squirtle" border="5px solid #0000ffff" x="0" y="0"/>
+	<input type="image" src="/pokemon/images/7.png" onclick="location.href='squirtle.html';" height="200" width="200" id="squirtle" border="5px solid #0000ffff"/>
 	<script>
 		var bulbasaur = d3.select("#bulbasaur");
 		var charmander = d3.select("#charmander");
 		var squirtle = d3.select("#squirtle");
-		charmander.attr("y", "250");
-		squirtle.attr("y", "500");
+		charmander.attr("top", "250");
+		squirtle.attr("top", "500");
 	</script>
 	<svg width="700" height="200" xmlns="http://www.w3.org/2000/svg">
 	</svg>
