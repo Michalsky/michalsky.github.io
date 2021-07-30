@@ -10,15 +10,10 @@
 		<title>A Pokemon Trainer's First Big Decision</title>
 	</head>
 	<style></style>
-	<svg width="700" height="200" xmlns="http://www.w3.org/2000/svg">
-		<g id="charmander">
-			<image href="/pokemon/images/4.png" height="200" width="200"/>
-		</g>
-		<g id="squirtle">
-			<image href="/pokemon/images/7.png" height="200" width="200"/>
-		</g>
-	</svg>
+
 	<input type="image" src="/pokemon/images/1.png" height="200" width="200" id="bulbasaur" border="5px solid #0000ffff" x="0" y="0"/>
+	<input type="image" src="/pokemon/images/4.png" height="200" width="200" id="charmander" border="5px solid #0000ffff" x="0" y="0"/>
+	<input type="image" src="/pokemon/images/7.png" height="200" width="200" id="squirtle" border="5px solid #0000ffff" x="0" y="0"/>
 	<script>
 		var bulbasaur = d3.select("#bulbasaur");
 		var charmander = d3.select("#charmander");
@@ -26,5 +21,7 @@
 		charmander.attr("transform", "translate(250,0)");
 		squirtle.attr("transform", "translate(500,0)");
 	</script>
+	<svg width="700" height="200" xmlns="http://www.w3.org/2000/svg">
+	</svg>
 	</body>
 </html>
