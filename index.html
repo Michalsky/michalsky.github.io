@@ -89,7 +89,7 @@
 				async function init() {
 					const data = await d3.csv("/pokemon/data/pokemon.csv");
 					data.forEach((item, i) => {
-						if(poke_ids.includes(i)){
+						if(poke_ids.includes(i+1)){
 							filtered[new_i] = item;
 							new_i++;
 						}else{
@@ -99,13 +99,14 @@
 				  new_i = 0;
 				};
 				filtered.forEach((item, i) => {
-					if(poke_ids.includes(i)){
+					if(poke_ids.includes(i+1)){
+						console.log(item)
 						HP[i] = item.HP;
 					}else{
 
 					}
 				});
-				console.log(filtered);
+				console.log(filtered);ew
 				console.log(HP);
 
 
