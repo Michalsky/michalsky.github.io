@@ -78,6 +78,9 @@
 				}
 				svg{
 					position: fixed;
+					z-index: 1;
+					bottom: 15px;
+					right: 15px;
 				}
 	</style>
 	<body onload='init()'>
@@ -134,7 +137,7 @@
 		                   .scale(scale);
 
 		    //Append group and insert axis
-		    svg.append("g").call(x_axis)
+		    svg.append("g").call(x_axis).attr("transform","translate(100,50)")
 
 			</script>
 		  <img src='logo.png' class='myLogo'/>
