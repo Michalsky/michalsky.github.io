@@ -86,6 +86,7 @@
 				var new_i = 0;
 				var filtered = [];
 				var HP = [];
+				var width = Math.floor(window.innerWidth * 0.33);
 				async function init() {
 					const data = await d3.csv("/pokemon/data/pokemon.csv");
 					data.forEach((item, i) => {
@@ -116,13 +117,14 @@
 
 				var svg = d3.select("body")
                 .append("svg")
-                .attr("width", 200)
-                .attr("height", 200);
+                .attr("top", 200)
+								.attr("width", width)
+								.attr("bottom", 20);
 
 		    // Create scale
 		    var scale = d3.scaleLinear()
 		                  .domain([0, d3.max(HP)])
-		                  .range([0, 200 - 100]);
+		                  .range([0, width - 100]);
 
 		    // Add scales to axis
 		    var x_axis = d3.axisBottom()
