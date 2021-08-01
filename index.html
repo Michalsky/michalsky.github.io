@@ -82,15 +82,31 @@
 				var bulbasaur = d3.select("#bulbasaur");
 				var charmander = d3.select("#charmander");
 				var squirtle = d3.select("#squirtle");
-
+				const poke_ids = [1,4,7];
+				var new_i = 0;
+				var filtered = [];
+				var HP = [];
 				async function init() {
 					const data = await d3.csv("/pokemon/data/pokemon.csv");
 					data.forEach((item, i) => {
-						console.log(item.HP)
+						if(poke_ids.includes(i)){
+							filtered[new_i] = item;
+							new_i++;
+						}else{
+
+						}
 					});
-
+				  new_i = 0;
 				};
+				filtered.forEach((item, i) => {
+					if(poke_ids.includes(i)){
+						HP[i] = item.HP;
+					}else{
 
+					}
+				});
+				console.log(filtered);
+				console.log(HP);
 
 
 				// var xdomain = [0,3];
@@ -105,9 +121,9 @@
                 .attr("height", 200);
 
 		    // Create scale
-		    var scale = d3.scaleLinear()
-		                  .domain([d3.min(data), d3.max(data)])
-		                  .range([0, 200 - 100]);
+		    // var scale = d3.scaleLinear()
+		    //               .domain([d3.min(data), d3.max(data)])
+		    //               .range([0, 200 - 100]);
 
 		    // Add scales to axis
 		    var x_axis = d3.axisBottom()
