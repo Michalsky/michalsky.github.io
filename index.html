@@ -38,7 +38,13 @@
 				width: 150px;
 				background-image: url('profile-background.jpeg');
 				}
-			.myCharts{
+			.myNamplate{
+				position: relative;
+				text-align:center;
+				font-family: courier;
+				bottom: 0;
+			}
+			.myChart{
 				position: fixed;
 				top: 150px;
 				bottom: 10px;
@@ -65,8 +71,8 @@
 				}
 				input{
 					display: block;
-					height: 150px;
-					width: 150px;
+					height: 130px;
+					width: 130px;
 				}
 	</style>
 	<body onload='init()'>
@@ -83,13 +89,14 @@
 			<div class="myBulbasaurDiv">
 				<input type="image"  data-toggle="tooltip" title="I Choose You, Bulbasaur!" src="/pokemon/images/1.png"  onclick="location.href='bulbasaur.html';" id="bulbasaur"/>
 			</div>
-			<div class="myCharmanderDiv"> Charmander
+			<div class="myCharmanderDiv">
 				<input type="image" data-toggle="tooltip" title="I Choose You, Charmander!" src="/pokemon/images/4.png" onclick="location.href='charmander.html';" id="charmander"/>
+				<div class="myNamplate">Charmander</div>
 			</div>
 			<div class="mySquirtleDiv">
 				<input type="image" data-toggle="tooltip" title="I Choose You, Squirtle!" src="/pokemon/images/7.png" onclick="location.href='squirtle.html';" id="squirtle"/>
 			</div>
-			<div class="myCharts">Pokemon Readings
+			<div class="myChart">Pokemon Readings
 			</div>
 	</body>
 </html>
