@@ -9,20 +9,78 @@
 					initial-scale=1.0"/>
 		<title>I choose you, Charmander!</title>
 	</head>
-	<style></style>
+	<style>
+    .myCharmanderDiv {
+      border: 5px outset red;
+      position: absolute;
+      border-color: red;
+      left: 10px;
+      top: 10px;
+      height: 200px;
+      width: 200px;
+      background-image: url('profile-background.jpeg');}
+    .myCharmeleonDiv{
+      border: 5px outset red;
+      position: absolute;
+      left: 10px;
+      top: 230px;
+      border-color: red;
+      height: 200px;
+      width: 200px;
+      background-image: url('profile-background.jpeg');}
+    .myCharizardDiv{
+      border: 5px outset red;
+      position: absolute;
+      left: 10px;
+      top: 460px;
+      border-color: red;
+      height: 200px;
+      width: 200px;
+      background-image: url('profile-background.jpeg');
+      }
+      .myOaksLabDiv{
+        border: 5px outset black;
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        border-color: green;
+        height: 200px;
+        width: 200px;
+        }
 
-	<input type="image" src="/pokemon/images/4.png" height="200" width="200" id="charmander" border="5px solid #0000ffff" x="0" y="0"/>
-	<input type="image" src="/pokemon/images/5.png" height="200" width="200" id="charmeleon" border="5px solid #0000ffff" x="0" y="0"/>
-	<input type="image" src="/pokemon/images/6.png" height="200" width="200" id="charizard" border="5px solid #0000ffff" x="0" y="0"/>
-  <input type="image" src="/pokemon/images/oaks-lab.png" onclick="location.href='index.html';" height="200" width="200" id="lab" border="5px solid #0000ffff" x="0" y="0"/>
+      body {
+        position: absolute;
+      background-image: url('pallet-town.jpeg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+      input{
+        height: 200px;
+        width: 200px;
+      }
+  </style>
+  <body>
+    <div class="myCharmanderDiv">
+      <input type="image" src="/pokemon/images/4.png" id="charmander"/>
+    </div>
+    <div class="myCharmeleonDiv">
+      <input type="image" src="/pokemon/images/5.png" id="charmeleon"/>
+    </div>
+    <div class="myCharizardDiv">
+      <input type="image" src="/pokemon/images/6.png" id="charizard"/>
+    </div>
+    <div class="myOaksLabDiv">
+      <input type="image" src="oaks-lab.png" onclick="location.href='index.html';" id="oakslab"/>
+    </div>
 	<script>
-		var bulbasaur = d3.select("#charmander");
-		var charmander = d3.select("#charmeleon");
-		var squirtle = d3.select("#charizard");
-		charmander.attr("transform", "translate(0,250)");
-		squirtle.attr("transform", "translate(0,500)");
+    var charmander = d3.select("#charmander");
+    var charmeleon = d3.select("#charmeleon");
+    var charizard = d3.select("#charizard");
+
+    async function init() {
+      const data = await d3.csv('/pokemon/data/pokemon.csv')
+      console.log(data)
+    }
 	</script>
-	<svg width="700" height="200" xmlns="http://www.w3.org/2000/svg">
-	</svg>
 	</body>
 </html>
