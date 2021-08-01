@@ -90,10 +90,28 @@
 					console.log(max(data.HP));
 				}
 
-				var xdomain = [0,3];
-				var ydomain = [0,1];
-				var xrange =  [0,3];
-				var yrange = [0, max(data.HP)];
+				// var xdomain = [0,3];
+				// var ydomain = [0,1];
+				// var xrange =  [0,3];
+				// var yrange = [0, 500];
+
+
+				var svg = d3.select("body")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+		    // Create scale
+		    var scale = d3.scaleLinear()
+		                  .domain([d3.min(data), d3.max(data)])
+		                  .range([0, width - 100]);
+
+		    // Add scales to axis
+		    var x_axis = d3.axisBottom()
+		                   .scale(scale);
+
+		    //Append group and insert axis
+		    svg.append("g")
 
 			</script>
 		  <img src='logo.png' class='myLogo'/>
