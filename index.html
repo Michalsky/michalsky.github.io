@@ -92,6 +92,10 @@
 				var new_i = 0;
 				var filtered = [];
 				var HP = [];
+				var NAME = [];
+				var STR = [];
+				var DEF = [];
+
 				var width = Math.floor(window.innerWidth * 0.28);
 				async function init() {
 					const data = await d3.csv("/pokemon/data/pokemon.csv");
@@ -104,8 +108,10 @@
 				  new_i = 0;
 
 					filtered.forEach((item, i) => {
-						console.log(item.HP);
 						HP[i] = item.HP;
+						NAME[i] = item.Name;
+						STR[i] = item.Attack;
+						DEF[i] = item.Defense;
 					});
 				};
 
@@ -129,7 +135,7 @@
 
 		    // Create scale
 		    var scale = d3.scaleLinear()
-		                  .domain([0, d3.max(HP)])
+		                  .domain(NAME)
 		                  .range([0, width - 100]);
 
 		    // Add scales to axis
