@@ -95,12 +95,14 @@
 						}
 					});
 				  new_i = 0;
+
+					filtered.forEach((item, i) => {
+						console.log(item.HP);
+						HP[i] = item.HP;
+					});
 				};
 
-				filtered.forEach((item, i) => {
-					console.log(item.HP);
-					HP[i] = item.HP;
-				});
+
 
 				console.log(filtered);
 				//console.log(HP);
