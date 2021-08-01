@@ -104,7 +104,7 @@
 		    // Create scale
 		    var scale = d3.scaleLinear()
 		                  .domain([d3.min(data), d3.max(data)])
-		                  .range([0, width - 100]);
+		                  .range([0, 200 - 100]);
 
 		    // Add scales to axis
 		    var x_axis = d3.axisBottom()
@@ -132,6 +132,5 @@
 				<button id="STR">Strength</button>
 				<button id="DEF">Defense</button>
 			</div>
-			<svg></svg>
 	</body>
 </html>
