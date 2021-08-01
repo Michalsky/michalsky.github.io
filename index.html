@@ -92,18 +92,18 @@
 						if(poke_ids.includes(i+1)){
 							filtered[new_i] = item;
 							new_i++;
-						}else{
-
 						}
 					});
 				  new_i = 0;
 				};
+
 				filtered.forEach((item, i) => {
-					console.log(item);
+					console.log(item.HP);
 					HP[i] = item.HP;
 				});
+
 				console.log(filtered);
-				console.log(HP);
+				//console.log(HP);
 
 
 				// var xdomain = [0,3];
