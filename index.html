@@ -89,7 +89,7 @@
 				var new_i = 0;
 				var filtered = [];
 				var HP = [];
-				var width = Math.floor(window.innerWidth * 0.33);
+				var width = Math.floor(window.innerWidth * 0.28);
 				async function init() {
 					const data = await d3.csv("/pokemon/data/pokemon.csv");
 					data.forEach((item, i) => {
@@ -120,7 +120,7 @@
 
 				var svg = d3.select("body")
                 .append("svg")
-                .attr("top", 200)
+                .attr("height", 200)
 								.attr("width", width)
 								.attr("bottom", 20);
 
