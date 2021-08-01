@@ -143,11 +143,9 @@
 
 		    // Add scales to axis
 		    var x_axis = d3.axisBottom()
-		                   .scale(x_scale)
-											 .tickValues(NUM);
+		                   .scale(x_scale);
 				var y_axis = d3.axisLeft()
-											 .scale(y_scale)
-											 .tickValues(HP);
+											 .scale(y_scale);
 
 		    //Append group and insert axis
 		    svg.append("g").call(x_axis).attr("transform","translate(20,170)");
