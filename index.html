@@ -86,8 +86,7 @@
 				async function init() {
 					const data = await d3.csv("/pokemon/data/pokemon.csv");
 					console.log(data);
-					console.log(data.HP);
-					console.log(max(data.HP));
+					console.log(function(d){ return d.HP;});
 				}
 
 				// var xdomain = [0,3];
