@@ -87,15 +87,10 @@
 					const data = await d3.csv("/pokemon/data/pokemon.csv");
 				};
 
-				var HP = [];
-				HP.forEach(function);
+				data.forEach((item, i) => {
+					console.log(item.HP)
+				});
 
-				function(d){
-					HP = d.HP;
-				}
-
-
-				console.log(HP);
 				// var xdomain = [0,3];
 				// var ydomain = [0,1];
 				// var xrange =  [0,3];
