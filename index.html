@@ -65,6 +65,12 @@
 				var bulbasaur = d3.select("#bulbasaur");
 				var charmander = d3.select("#charmander");
 				var squirtle = d3.select("#squirtle");
+
+				async function init() {
+					const data = await d3.csv('/pokemon/data/pokemon.csv')
+					console.log(data)
+				}
+
 			</script>
 			<svg width="700" height="200" xmlns="http://www.w3.org/2000/svg">
 			</svg>
