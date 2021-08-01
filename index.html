@@ -80,16 +80,15 @@
 			<div class="mySquirtleDiv">
 				<input type="image" data-toggle="tooltip" title="I Choose You, Squirtle!" src="/pokemon/images/7.png" onclick="location.href='squirtle.html';" id="squirtle"/>
 			</div>
-			<div class="myCharts">Pokemon Readings</div>
+			<div class="myCharts">Pokemon Readings
+
+			</div>
 			<script>
 				var bulbasaur = d3.select("#bulbasaur");
 				var charmander = d3.select("#charmander");
 				var squirtle = d3.select("#squirtle");
-
-				async function init() {
-					const data = await d3.csv('https://raw.githubusercontent.com/Michalsky/michalsky.github.io/main/pokemon/data/pokemon.csv');
-					console.log(data);
-				}
+			  const data = await d3.csv("https://raw.githubusercontent.com/Michalsky/michalsky.github.io/main/pokemon/data/pokemon.csv");
+				console.log(data);
 			</script>
 	</body>
 </html>
