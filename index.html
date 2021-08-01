@@ -85,11 +85,13 @@
 
 				async function init() {
 					const data = await d3.csv("/pokemon/data/pokemon.csv");
+					data.forEach((item, i) => {
+						console.log(item.HP)
+					});
+
 				};
 
-				data.forEach((item, i) => {
-					console.log(item.HP)
-				});
+
 
 				// var xdomain = [0,3];
 				// var ydomain = [0,1];
