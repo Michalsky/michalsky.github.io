@@ -82,10 +82,19 @@
 				var bulbasaur = d3.select("#bulbasaur");
 				var charmander = d3.select("#charmander");
 				var squirtle = d3.select("#squirtle");
+
 				async function init() {
 					const data = await d3.csv("/pokemon/data/pokemon.csv");
 					console.log(data);
+					console.log(data.HP);
+					console.log(max(data.HP));
 				}
+
+				var xdomain = [0,3];
+				var ydomain = [0,1];
+				var xrange =  [0,3];
+				var yrange = [0, max(data.HP)];
+
 			</script>
 		  <img src='logo.png' class='myLogo'/>
 			<div class="myBulbasaurDiv">
@@ -100,7 +109,7 @@
 				<input type="image" data-toggle="tooltip" title="I Choose You, Squirtle!" src="/pokemon/images/7.png" onclick="location.href='squirtle.html';" id="squirtle"/>
 				<div class="myNamplate">Squirtle</div>
 			</div>
-			<div class="myChart">Pokemon Readings
-			</div>
+			<div class="myChart">Pokemon Readings</div>
+			<svg></svg>
 	</body>
 </html>
