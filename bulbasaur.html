@@ -9,20 +9,79 @@
 					initial-scale=1.0"/>
 		<title>I choose you, Bulbasaur!</title>
 	</head>
-	<style></style>
+	<style>
+    .myBulbasaurDiv {
+      border: 5px outset green;
+      position: absolute;
+      border-color: green;
+      left: 10px;
+      top: 10px;
+      height: 200px;
+      width: 200px;
+      background-image: url('profile-background.jpeg');}
+    .myIvysaurDiv{
+      border: 5px outset green;
+      position: absolute;
+      left: 10px;
+      top: 230px;
+      border-color: green;
+      height: 200px;
+      width: 200px;
+      background-image: url('profile-background.jpeg');}
+    .myVenusaurDiv{
+      border: 5px outset green;
+      position: absolute;
+      left: 10px;
+      top: 460px;
+      border-color: green;
+      height: 200px;
+      width: 200px;
+      background-image: url('profile-background.jpeg');
+      }
+      .myOaksLabDiv{
+        border: 5px outset black;
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        border-color: green;
+        height: 200px;
+        width: 200px;
+        background-image: url('profile-background.jpeg');
+        }
 
-	<input type="image" src="/pokemon/images/1.png" height="200" width="200" id="bulbasaur" border="5px solid #0000ffff" x="0" y="0"/>
-	<input type="image" src="/pokemon/images/2.png" height="200" width="200" id="ivysaur" border="5px solid #0000ffff" x="0" y="0"/>
-	<input type="image" src="/pokemon/images/3.png" height="200" width="200" id="venusaur" border="5px solid #0000ffff" x="0" y="0"/>
-  <input type="image" src="/pokemon/images/oaks-lab.png" onclick="location.href='index.html';" height="200" width="200" id="lab" border="5px solid #0000ffff" x="0" y="0"/>
+      body {
+        position: absolute;
+      background-image: url('pallet-town.jpeg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+      input{
+        height: 200px;
+        width: 200px;
+      }
+  </style>
+  <body>
+    <div class="myBulbasaurDiv">
+      <input type="image" src="/pokemon/images/1.png" id="bulbasaur"/>
+    </div>
+    <div class="myIvysaurDiv">
+      <input type="image" src="/pokemon/images/2.png" id="ivysaur"/>
+    </div>
+    <div class="myVenusaurDiv">
+      <input type="image" src="/pokemon/images/3.png" id="venusaur"/>
+    </div>
+    <div class="myOaksLabDiv">
+      <input type="image" src="/pokemon/images/7.png" onclick="location.href='squirtle.html';" id="squirtle"/>
+    </div>
 	<script>
-		var bulbasaur = d3.select("#bulbasaur");
-		var charmander = d3.select("#ivysaur");
-		var squirtle = d3.select("#venusaur");
-		charmander.attr("transform", "translate(0,250)");
-		squirtle.attr("transform", "translate(0,500)");
+    var bulbasaur = d3.select("#bulbasaur");
+    var ivysaur = d3.select("#ivysaur");
+    var venusaur = d3.select("#venusaur");
+
+    async function init() {
+      const data = await d3.csv('/pokemon/data/pokemon.csv')
+      console.log(data)
+    }
 	</script>
-	<svg width="700" height="200" xmlns="http://www.w3.org/2000/svg">
-	</svg>
 	</body>
 </html>
