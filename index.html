@@ -135,10 +135,10 @@
 
 		    // Create scale
 		    var x_scale = d3.scaleLinear()
-		                  .domain(NAME)
+		                  .domain([1,3])
 		                  .range([0, width - 100]);
-				var y_scale = d3.scaleBand()
-		                  .domain(HP)
+				var y_scale = d3.scaleLinear()
+		                  .domain([d3.min(HP), d3.max(HP)])
 		                  .range([0,200]);
 
 		    // Add scales to axis
