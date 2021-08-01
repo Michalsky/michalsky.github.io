@@ -129,21 +129,28 @@
 
 				var svg = d3.select("body")
                 .append("svg")
-                .attr("height", 200)
+                .attr("height", 500)
 								.attr("width", width)
 								.attr("bottom", 20);
 
 		    // Create scale
-		    var scale = d3.scaleLinear()
+		    var x_scale = d3.scaleLinear()
 		                  .domain(NAME)
 		                  .range([0, width - 100]);
+				var y_scale = d3.scaleBand()
+		                  .domain(HP)
+		                  .range([0,200]);
 
 		    // Add scales to axis
 		    var x_axis = d3.axisBottom()
-		                   .scale(scale);
+		                   .scale(x_scale);
+				var y_axis = d3.axisLeft()
+											 .scale(y_scale);
 
 		    //Append group and insert axis
-		    svg.append("g").call(x_axis).attr("transform","translate(20,170)")
+		    svg.append("g").call(x_axis).attr("transform","translate(20,170)");
+				svg.append("g").call(y_axis).attr("transform","translate(20,0)");
+
 
 			</script>
 		  <img src='logo.png' class='myLogo'/>
