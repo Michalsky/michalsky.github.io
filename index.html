@@ -70,6 +70,15 @@
 				}
 	</style>
 	<body>
+			<script>
+				var bulbasaur = d3.select("#bulbasaur");
+				var charmander = d3.select("#charmander");
+				var squirtle = d3.select("#squirtle");
+				async function init() {
+					const data = await d3.csv("/pokemon/data/pokemon.csv");
+					console.log(data);
+				}
+			</script>
 		  <img src='logo.png' class='myLogo'/>
 			<div class="myBulbasaurDiv">
 				<input type="image"  data-toggle="tooltip" title="I Choose You, Bulbasaur!" src="/pokemon/images/1.png"  onclick="location.href='bulbasaur.html';" id="bulbasaur"/>
@@ -81,14 +90,6 @@
 				<input type="image" data-toggle="tooltip" title="I Choose You, Squirtle!" src="/pokemon/images/7.png" onclick="location.href='squirtle.html';" id="squirtle"/>
 			</div>
 			<div class="myCharts">Pokemon Readings
-
 			</div>
-			<script>
-				var bulbasaur = d3.select("#bulbasaur");
-				var charmander = d3.select("#charmander");
-				var squirtle = d3.select("#squirtle");
-			  const data = await d3.csv("https://raw.githubusercontent.com/Michalsky/michalsky.github.io/main/pokemon/data/pokemon.csv");
-				console.log(data);
-			</script>
 	</body>
 </html>
