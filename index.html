@@ -38,6 +38,9 @@
 				width: 200px;
 				background-image: url('profile-background.jpeg');
 				}
+			.container{
+				position: relative
+			}
 				body {
 				background-image: url('pallet-town.jpeg');
 				background-repeat: no-repeat;
@@ -49,6 +52,7 @@
 				}
 	</style>
 	<body>
+		<div class="container">
 			<div class="myBulbasaurDiv">
 				<input type="image" src="/pokemon/images/1.png"  onclick="location.href='bulbasaur.html';" id="bulbasaur"/>
 			</div>
@@ -58,6 +62,7 @@
 			<div class="mySquirtleDiv">
 				<input type="image" src="/pokemon/images/7.png" onclick="location.href='squirtle.html';" id="squirtle"/>
 			</div>
+		</div>
 			<script>
 				var bulbasaur = d3.select("#bulbasaur");
 				var charmander = d3.select("#charmander");
