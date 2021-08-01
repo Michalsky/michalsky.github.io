@@ -23,16 +23,16 @@
 				border: 5px outset red;
 				position: absolute;
   			left: 10px;
-				top: 220px;
+				top: 230px;
 				border-color: red;
 				height: 200px;
 				width: 200px;
 				background-image: url('profile-background.jpeg');}
 			.mySquirtleDiv{
 				border: 5px outset blue;
-				position: relative;
+				position: absolute;
   			left: 10px;
-				top: 440px;
+				top: 460px;
 				border-color: blue;
 				height: 200px;
 				width: 200px;
@@ -40,7 +40,6 @@
 				}
 				body {
 				background-image: url('pallet-town.jpeg');
-				z-index: 0;
 				background-repeat: no-repeat;
 				background-size: 100% 100%;
 				}
@@ -59,7 +58,6 @@
 			<div class="mySquirtleDiv">
 				<input type="image" src="/pokemon/images/7.png" onclick="location.href='squirtle.html';" id="squirtle"/>
 			</div>
-
 			<script>
 				var bulbasaur = d3.select("#bulbasaur");
 				var charmander = d3.select("#charmander");
@@ -69,9 +67,6 @@
 					const data = await d3.csv('/pokemon/data/pokemon.csv')
 					console.log(data)
 				}
-
 			</script>
-			<svg width="700" height="200" xmlns="http://www.w3.org/2000/svg">
-			</svg>
 	</body>
 </html>
