@@ -122,13 +122,13 @@
 				  new_i = 0;
 					//Append group and insert axis
 					svg.append("g").append("")
-					// svg.append("g").attr("transform", "translate(20,20)").selectAll('rect').data(filtered).enter().append('rect')
-					//  .attr("id","bars")
-					//  .attr("x", function(d) { return x_scale(d.Num); })
-					//  .attr("y", function(d) { return y_scale(d.HP); })
-					//  .attr("width", x_scale.bandwidth())
-					//  .attr("height", function(d) { return 400 - y_scale(d.HP); })
-					//  .attr("style",function(d){return "fill:" + d.Color;});
+					svg.append("g").attr("transform", "translate(20,20)").selectAll('rect').data(filtered).enter().append('rect')
+					 .attr("id","bars")
+					 .attr("x", function(d) { return x_scale(d.Num); })
+					 .attr("y", function(d) { return y_scale(d.HP); })
+					 .attr("width", x_scale.bandwidth())
+					 .attr("height", function(d) { return 400 - y_scale(d.HP); })
+					 .attr("style",function(d){return "fill:" + d.Color;});
 					svg.append("g").call(x_axis).attr("transform","translate(20,420)");
 	 				svg.append("g").call(y_axis).attr("transform","translate(20,20)");
 					svg.append("text")
@@ -139,7 +139,7 @@
         		.style("font-size", "16px")
 						.style("font-family", "courier")
         		.style("text-decoration", "underline")
-        		.text("Select a button to compare Pokemon!");
+        		.text("Health Points");
 				};
 
 
