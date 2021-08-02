@@ -132,7 +132,7 @@
 		    //Append group and insert axis
 		    svg.append("g").call(x_axis).attr("transform","translate(20,420)");
 				svg.append("g").call(y_axis).attr("transform","translate(20,20)");
-				svg.append("g").selectAll().data(data).enter().append("rect")
+				svg.append("g").selectAll('rect').data(data).enter().append("rect")
 												.attr("height", "30")
 												.attr("width", "30")
 												.attr("x", "10")
