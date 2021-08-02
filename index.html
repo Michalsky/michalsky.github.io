@@ -102,13 +102,7 @@
 				// Add scales to axis
 				var x_axis = d3.axisBottom().scale(x_scale);
 				var y_axis = d3.axisLeft().scale(y_scale);
-				console.log("svg");
-				var svg = d3.select("body")
-								.append("svg")
-								.attr("height", 500)
-								.attr("width", width)
-								.attr("bottom", 20);
-				console.log("post-svg");
+
 
 				async function init(){
 					const data = await d3.csv("/pokemon/data/pokemon.csv");
@@ -117,10 +111,18 @@
 							filtered[new_i] = item;
 							new_i++;
 						}
+
+						var svg = d3.select("body")
+										.append("svg")
+										.attr("height", 500)
+										.attr("width", width)
+										.attr("bottom", 20);
 					});
 				  new_i = 0;
 					//Append group and insert axis
-					svg.append("g").attr("id","bars").attr("transform", "translate(20,20)").selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
+					svg.append("g").attr("transform", "translate(20,20)").selectAll('rect').data(filtered).enter().append('rect')
+					 .attr("id","bars")
+					 .attr("x", function(d) { return x_scale(d.Num); })
 					 .attr("y", function(d) { return y_scale(d.HP); })
 					 .attr("width", x_scale.bandwidth())
 					 .attr("height", function(d) { return 400 - y_scale(d.HP); })
@@ -136,7 +138,7 @@
 				function makeHPChart(){
 					console.log("HP");
 			    //Append group and insert axis
-					svg.select(".bars").selectAll('rect').data(filtered).attr("x", function(d) { return x_scale(d.Num); })
+					svg.select(".bars").selectAll('rect').data(filtered).transition().duration(2000).attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.HP); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.HP); })
@@ -144,15 +146,17 @@
 				};
 				function makeSTRChart(){
 					console.log("STR");
-					svg.select(".bars").selectAll('rect').data(filtered).attr("x", function(d) { return x_scale(d.Num); })
+					svg.select(".bars").selectAll('rect').data(filtered).transition().duration(2000).attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.Attack); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.Attack); })
 					 .attr("style",function(d){return "fill:" + d.Color;});
 				};
 				function makeDEFChart(){
-					console.log("STR");
-					svg.select(".bars").selectAll('rect').data(filtered).attr("x", function(d) { return x_scale(d.Num); })
+					console.log("DEF");
+					var svg = d3.select("body").transition();
+
+					svg.select(".bars").selectAll('rect').data(filtered).transition().duration(2000).attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.Defense); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.Defense); })
