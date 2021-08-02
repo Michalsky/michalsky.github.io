@@ -139,7 +139,7 @@
 				var aNum = ["1","4","7"];
 		    // Create scale
 		    var x_scale = d3.scaleBand()
-		                  .domain([NUM])
+		                  .domain(function(d){return d;})
 		                  .range([0, width - 100]);
 				var y_scale = d3.scaleBand().domain(HP).range([0,400]);
 
