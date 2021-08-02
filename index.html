@@ -112,12 +112,13 @@
 							new_i++;
 						}
 
-						var svg = d3.select("body")
-										.append("svg")
-										.attr("height", 500)
-										.attr("width", width)
-										.attr("bottom", 20);
+
 					});
+					var svg = d3.select("body")
+									.append("svg")
+									.attr("height", 500)
+									.attr("width", width)
+									.attr("bottom", 20);
 				  new_i = 0;
 					//Append group and insert axis
 					svg.append("g").attr("transform", "translate(20,20)").selectAll('rect').data(filtered).enter().append('rect')
