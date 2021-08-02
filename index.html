@@ -110,7 +110,7 @@
 				// var xrange =  [0,3];
 				// var yrange = [0, 500];
 
-
+				console.log(filtered)
 				var svg = d3.select("body")
                 .append("svg")
                 .attr("height", 500)
@@ -134,7 +134,7 @@
 				svg.append("g").selectAll().data(filtered).enter().append("rect")
 												.attr("height", y_scale(30))
 												.attr("width", 30)
-												.attr("x", x_scale(function(d,i){return d[i].Num;}))
+												.attr("x", x_scale(function(d,i){return d.Num;}))
 												.attr("y", 20);
 				//function("")
 
