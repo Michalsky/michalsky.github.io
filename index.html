@@ -136,7 +136,7 @@
 				function makeHPChart(){
 					console.log("HP");
 			    //Append group and insert axis
-					svg.select(".bars").selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
+					svg.select(".bars").selectAll('rect').data(filtered).attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.HP); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.HP); })
@@ -144,7 +144,7 @@
 				};
 				function makeSTRChart(){
 					console.log("STR");
-					svg.select(".bars").selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
+					svg.select(".bars").selectAll('rect').data(filtered).attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.Attack); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.Attack); })
@@ -152,7 +152,7 @@
 				};
 				function makeDEFChart(){
 					console.log("STR");
-					svg.select(".bars").selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
+					svg.select(".bars").selectAll('rect').data(filtered).attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.Defense); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.Defense); })
