@@ -121,15 +121,25 @@
 									.attr("bottom", 20);
 				  new_i = 0;
 					//Append group and insert axis
-					svg.append("g").attr("transform", "translate(20,20)").selectAll('rect').data(filtered).enter().append('rect')
-					 .attr("id","bars")
-					 .attr("x", function(d) { return x_scale(d.Num); })
-					 .attr("y", function(d) { return y_scale(d.HP); })
-					 .attr("width", x_scale.bandwidth())
-					 .attr("height", function(d) { return 400 - y_scale(d.HP); })
-					 .attr("style",function(d){return "fill:" + d.Color;});
-					 svg.append("g").call(x_axis).attr("transform","translate(20,420)");
+					svg.append("g").append("")
+					// svg.append("g").attr("transform", "translate(20,20)").selectAll('rect').data(filtered).enter().append('rect')
+					//  .attr("id","bars")
+					//  .attr("x", function(d) { return x_scale(d.Num); })
+					//  .attr("y", function(d) { return y_scale(d.HP); })
+					//  .attr("width", x_scale.bandwidth())
+					//  .attr("height", function(d) { return 400 - y_scale(d.HP); })
+					//  .attr("style",function(d){return "fill:" + d.Color;});
+					svg.append("g").call(x_axis).attr("transform","translate(20,420)");
 	 				svg.append("g").call(y_axis).attr("transform","translate(20,20)");
+					svg.append("text")
+        		.attr("x", (width / 2))
+        		.attr("y", 0 - (margin.top / 2))
+        		.attr("text-anchor", "middle")
+						.attr("id", "title")
+        		.style("font-size", "16px")
+						.style("font-family", "courier")
+        		.style("text-decoration", "underline")
+        		.text("Select a button to compare Pokemon!");
 				};
 
 
@@ -145,6 +155,7 @@
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.HP); })
 					 .attr("style",function(d){return "fill:" + d.Color;});
+				 d3.select("#title").text("Health Points");
 				};
 				function makeSTRChart(){
 					console.log("STR");
@@ -153,6 +164,7 @@
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.Attack); })
 					 .attr("style",function(d){return "fill:" + d.Color;});
+					 d3.select("#title").text("Strength");
 				};
 				function makeDEFChart(){
 					console.log("DEF");
@@ -161,6 +173,7 @@
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.Defense); })
 					 .attr("style",function(d){return "fill:" + d.Color;});
+					 d3.select("#title").text("Defense");
 				};
 
 			</script>
