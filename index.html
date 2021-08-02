@@ -127,18 +127,19 @@
 					 .attr("width", x_scale.bandwidth())
 					 .attr("height", function(d) { return 400 - y_scale(d.HP); })
 					 .attr("style",function(d){return "fill:" + d.Color;});
+					 svg.append("g").call(x_axis).attr("transform","translate(20,420)");
+	 				svg.append("g").call(y_axis).attr("transform","translate(20,20)");
 				};
 
 
 
-				svg.append("g").call(x_axis).attr("transform","translate(20,420)");
-				svg.append("g").call(y_axis).attr("transform","translate(20,20)");
+
 
 				console.log(filtered);
 				function makeHPChart(){
 					console.log("HP");
 			    //Append group and insert axis
-					svg.select(".bars").selectAll('rect').data(filtered).transition().duration(2000).attr("x", function(d) { return x_scale(d.Num); })
+					d3.select("#bars").selectAll('rect').data(filtered).transition().duration(2000).attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.HP); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.HP); })
@@ -146,7 +147,7 @@
 				};
 				function makeSTRChart(){
 					console.log("STR");
-					svg.select(".bars").selectAll('rect').data(filtered).transition().duration(2000).attr("x", function(d) { return x_scale(d.Num); })
+					d3.select("#bars").selectAll('rect').data(filtered).transition().duration(2000).attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.Attack); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.Attack); })
@@ -156,7 +157,7 @@
 					console.log("DEF");
 					var svg = d3.select("body").transition();
 
-					svg.select(".bars").selectAll('rect').data(filtered).transition().duration(2000).attr("x", function(d) { return x_scale(d.Num); })
+					d3.select("#bars").selectAll('rect').data(filtered).transition().duration(2000).attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.Defense); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.Defense); })
