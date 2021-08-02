@@ -150,8 +150,8 @@
 		    //Append group and insert axis
 		    svg.append("g").call(x_axis).attr("transform","translate(20,420)");
 				svg.append("g").call(y_axis).attr("transform","translate(20,20)");
-				svg.append("g").selectAll().data(HP).enter().append("rect")
-												.attr("height", y_scale(50))
+				svg.append("g").selectAll().data(filtered).enter().append("rect")
+												.attr("height", y_scale(function(d){return d.HP})
 												.attr("width", x_scale(20);
 				//function("")
 
