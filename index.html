@@ -125,7 +125,7 @@
 					svg.append("g").attr("transform", "translate(20,20)").selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.HP); })
 	         .attr("width", x_scale.bandwidth())
-	         .attr("height", function(d) { return 420 - y_scale(d.HP); })
+	         .attr("height", function(d) { return 400 - y_scale(d.HP); })
 					 .attr("style","fill:"+function(d){return d.Color;});
 			    svg.append("g").call(x_axis).attr("transform","translate(20,420)");
 					svg.append("g").call(y_axis).attr("transform","translate(20,20)");
