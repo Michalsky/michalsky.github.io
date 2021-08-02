@@ -132,9 +132,9 @@
 		    svg.append("g").call(x_axis).attr("transform","translate(20,420)");
 				svg.append("g").call(y_axis).attr("transform","translate(20,20)");
 				svg.append("g").selectAll().data(filtered).enter().append("rect")
-												.attr("height", y_scale(30))
+												.attr("height", 30)
 												.attr("width", 30)
-												.attr("x", x_scale(function(d,i){return parseInt(d.Num);}))
+												.attr("x", 10)
 												.attr("y", 20);
 				//function("")
 
