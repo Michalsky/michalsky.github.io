@@ -103,6 +103,13 @@
 				var x_axis = d3.axisBottom().scale(x_scale);
 				var y_axis = d3.axisLeft().scale(y_scale);
 
+				var svg = d3.select("body")
+								.append("svg")
+								.attr("height", 500)
+								.attr("width", width)
+								.attr("bottom", 20);
+
+
 				async function init(){
 					const data = await d3.csv("/pokemon/data/pokemon.csv");
 					data.forEach((item, i) => {
@@ -112,31 +119,24 @@
 						}
 					});
 				  new_i = 0;
-
-					var svg = d3.select("body")
-	                .append("svg")
-	                .attr("height", 500)
-									.attr("width", width)
-									.attr("bottom", 20);
-
-
-
-
-			    //Append group and insert axis
-					svg.append("g").attr("id","bars").attr("transform", "translate(20,20)").selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
-	         .attr("y", function(d) { return y_scale(d.HP); })
-	         .attr("width", x_scale.bandwidth())
-	         .attr("height", function(d) { return 400 - y_scale(d.HP); })
-					 .attr("style",function(d){return "fill:" + d.Color;});
-			    svg.append("g").call(x_axis).attr("transform","translate(20,420)");
-					svg.append("g").call(y_axis).attr("transform","translate(20,20)");
 				};
+
+
+				//Append group and insert axis
+				svg.append("g").attr("id","bars").attr("transform", "translate(20,20)").selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
+				 .attr("y", function(d) { return y_scale(d.HP); })
+				 .attr("width", x_scale.bandwidth())
+				 .attr("height", function(d) { return 400 - y_scale(d.HP); })
+				 .attr("style",function(d){return "fill:" + d.Color;});
+				svg.append("g").call(x_axis).attr("transform","translate(20,420)");
+				svg.append("g").call(y_axis).attr("transform","translate(20,20)");
 
 				console.log(filtered);
 
 				function makeHPChart(){
 					console.log("HP")
-					d3.select(".bars").selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
+			    //Append group and insert axis
+					svg.select(".bars").selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.HP); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.HP); })
@@ -145,7 +145,7 @@
 
 				function makeSTRChart(){
 					console.log("STR")
-					d3.select('body').select('svg').select(".bars").selectAll('rect').data(filtered).enter().attr("x", function(d) { return x_scale(d.Num); })
+					svg.select(".bars").selectAll('rect').data(filtered).enter().attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.STR); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.STR); })
@@ -154,7 +154,7 @@
 
 				function makeDEFChart(){
 					console.log("DEF");
-					d3.select(".bars").selectAll('rect').data(filtered).enter().attr("x", function(d) { return x_scale(d.Num); })
+					svg.select('.bars')selectAll('rect').data(filtered).enter().attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.DEF); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.DEF); })
