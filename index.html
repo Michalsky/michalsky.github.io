@@ -108,8 +108,8 @@
 				  new_i = 0;
 
 					filtered.forEach((item, i) => {
-						HP[i] = parseInt(item.HP);
-						NUM[i] = parseInt(item.Num);
+						HP[i] = item.HP;
+						NUM[i] = item.Num;
 						STR[i] = parseInt(item.Attack);
 						DEF[i] = parseInt(item.Defense);
 					});
@@ -139,9 +139,9 @@
 				var aNum = ["1","4","7"];
 		    // Create scale
 		    var x_scale = d3.scaleBand()
-		                  .domain(aNum)
+		                  .domain(NUM)
 		                  .range([0, width - 100]);
-				var y_scale = d3.scaleLinear().domain(HP).range([0,400]);
+				var y_scale = d3.scaleBand().domain(HP).range([0,400]);
 
 		    // Add scales to axis
 		    var x_axis = d3.axisBottom().scale(x_scale);
