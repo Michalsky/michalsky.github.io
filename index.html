@@ -102,7 +102,7 @@
 				// Add scales to axis
 				var x_axis = d3.axisBottom().scale(x_scale);
 				var y_axis = d3.axisLeft().scale(y_scale);
-				
+
 				async function init(){
 					const data = await d3.csv("/pokemon/data/pokemon.csv");
 					data.forEach((item, i) => {
@@ -135,6 +135,7 @@
 				console.log(filtered);
 
 				function makeHPChart(){
+					console.log("HP")
 					d3.select(".bars").selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.HP); })
 	         .attr("width", x_scale.bandwidth())
@@ -143,7 +144,8 @@
 				};
 
 				function makeSTRChart(){
-					d3.select(".bars").selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
+					console.log("STR")
+					d3.select(".bars").selectAll('rect').data(filtered).enter().attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.STR); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.STR); })
@@ -151,7 +153,8 @@
 				};
 
 				function makeDEFChart(){
-					d3.select(".bars").selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
+					console.log("DEF");
+					d3.select(".bars").selectAll('rect').data(filtered).enter().attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.DEF); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.DEF); })
