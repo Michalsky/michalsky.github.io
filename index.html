@@ -140,7 +140,7 @@
 				function makeHPChart(){
 					console.log("HP");
 			    //Append group and insert axis
-					d3.selectAll("rect").data(filtered).transition().duration(2000).attr("x", function(d) { return x_scale(d.Num); })
+					d3.selectAll("rect").data(filtered).transition().duration(1000).attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.HP); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.HP); })
@@ -148,7 +148,7 @@
 				};
 				function makeSTRChart(){
 					console.log("STR");
-					d3.select("rect").data(filtered).transition().duration(2000).attr("x", function(d) { return x_scale(d.Num); })
+					d3.selectAll("rect").data(filtered).transition().duration(1000).attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.Attack); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.Attack); })
@@ -156,7 +156,7 @@
 				};
 				function makeDEFChart(){
 					console.log("DEF");
-					d3.select("rect").data(filtered).transition().duration(2000).attr("x", function(d) { return x_scale(d.Num); })
+					d3.selectAll("rect").data(filtered).transition().duration(1000).attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.Defense); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.Defense); })
