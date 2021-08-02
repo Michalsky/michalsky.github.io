@@ -103,8 +103,7 @@
 					});
 				  new_i = 0;
 
-					data = filtered;
-					console.log = filtered;
+					console.log(filtered);
 					var svg = d3.select("body")
 	                .append("svg")
 	                .attr("height", 500)
@@ -123,12 +122,12 @@
 					var y_axis = d3.axisLeft().scale(y_scale);
 
 			    //Append group and insert axis
-					svg.append("g").selectAll('rect').data(data).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
+					svg.append("g").selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.HP); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return height - y_scale(d.HP); });
 			    svg.append("g").call(x_axis).attr("transform","translate(20,420)");
-					svg.append("g").call(y_axis).attr("transform","translate(20,20)");					
+					svg.append("g").call(y_axis).attr("transform","translate(20,20)");
 				};
 			</script>
 		  <img src='logo.png' class='myLogo'/>
