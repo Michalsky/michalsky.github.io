@@ -110,16 +110,7 @@
 								.attr("bottom", 20);
 				console.log("post-svg")
 
-				async function init(){
-					const data = await d3.csv("/pokemon/data/pokemon.csv");
-					data.forEach((item, i) => {
-						if(poke_ids.includes(i+1)){
-							filtered[new_i] = item;
-							new_i++;
-						}
-					});
-				  new_i = 0;
-				};
+				
 
 
 				//Append group and insert axis
