@@ -66,9 +66,9 @@
 			.myStory{
 				position: fixed;
 				top: 150px;
-				bottom: 10px;
+				bottom: 30px;
 				left: 200px;
-				width: 33%;
+				width: 50%;
 				background-image: url('Story.jpeg');
 			}
 				body {
@@ -129,7 +129,6 @@
 									.attr("bottom", 20);
 				  new_i = 0;
 					//Append group and insert axis
-					svg.append("g").append("")
 					svg.append("g").attr("transform", "translate(20,20)").selectAll('rect').data(filtered).enter().append('rect')
 					 .attr("id","bars")
 					 .attr("x", function(d) { return x_scale(d.Num); })
