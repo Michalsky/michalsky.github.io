@@ -136,7 +136,7 @@
 	 					.attr("width", x_scale.bandwidth())
 	 					.attr("height", function(d) { return 400 - y_scale(d.DEF); })
 	 					.attr("style",function(d){return "fill:" + d.Color;})
-	 			 }
+	 			 };
 
 				 makeHPChart(){
 					d3.select('.bars').selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
@@ -144,7 +144,7 @@
 					 .attr("width", x_scale.bandwidth())
 					 .attr("height", function(d) { return 400 - y_scale(d.HP); })
 					 .attr("style",function(d){return "fill:" + d.Color;})
-				}
+				};
 
 				makeSTRChart(){
 				 d3.select('.bars').selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
@@ -152,7 +152,7 @@
 					.attr("width", x_scale.bandwidth())
 					.attr("height", function(d) { return 400 - y_scale(d.STR); })
 					.attr("style",function(d){return "fill:" + d.Color;})
-			 }
+			 };
 				};
 
 
