@@ -150,14 +150,6 @@
 	         .attr("height", function(d) { return 400 - y_scale(d.STR); })
 					 .attr("style",function(d){return "fill:" + d.Color;});
 				};
-				function makeDEFChart(){
-					console.log("DEF");
-					svg.select('.bars')selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
-	         .attr("y", function(d) { return y_scale(d.DEF); })
-	         .attr("width", x_scale.bandwidth())
-	         .attr("height", function(d) { return 400 - y_scale(d.DEF); })
-					 .attr("style",function(d){return "fill:" + d.Color;});
-				};
 
 			</script>
 		  <img src='logo.png' class='myLogo'/>
