@@ -143,13 +143,12 @@
 				var y_scale = d3.scaleLinear().domain([d3.min(HP), d3.max(HP)]).range([0,200]);
 
 		    // Add scales to axis
-		    var x_axis = d3.axisBottom()
-		                   .scale(x_scale);
+		    var x_axis = d3.axisBottom().scale(x_scale);
 				var y_axis = d3.axisLeft().scale(y_scale);
 
 		    //Append group and insert axis
 		    svg.append("g").call(x_axis).attr("transform","translate(20,170)");
-				svg.append("g").call(y_axis).attr("transform","translate(20,0)");
+				svg.append("g").call(y_axis).attr("transform","translate(20,100)");
 
 
 			</script>
