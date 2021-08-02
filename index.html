@@ -138,10 +138,10 @@
 
 				var aNum = ["1","4","7"];
 		    // Create scale
-		    var x_scale = d3.data(NUM).scaleBand()
-		                  .domain(function(d){return d;})
+		    var x_scale = d3.scaleBand()
+		                  .domain([1,4,7])
 		                  .range([0, width - 100]);
-				var y_scale = d3.scaleBand().domain(HP).range([0,400]);
+				var y_scale = d3.scaleLinear().domain([0,d3.max(HP)]).range([0,400]);
 
 		    // Add scales to axis
 		    var x_axis = d3.axisBottom().scale(x_scale);
