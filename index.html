@@ -122,7 +122,7 @@
 					var y_axis = d3.axisLeft().scale(y_scale);
 
 			    //Append group and insert axis
-					svg.append("g").selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
+					svg.append("g").attr("transform", "translate(20,20)").selectAll('rect').data(filtered).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.HP); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 500 - y_scale(d.HP); });
