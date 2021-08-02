@@ -137,7 +137,7 @@
 								.attr("bottom", 20);
 
 		    // Create scale
-		    var x_scale = d3.scaleLinear()
+		    var x_scale = d3.scaleBand()
 		                  .domain([0,4,5,7])
 		                  .range([0, width - 100]);
 				var y_scale = d3.scaleLinear().domain([d3.min(HP), d3.max(HP)]).range([0,400]);
