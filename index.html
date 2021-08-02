@@ -109,7 +109,7 @@
 
 					filtered.forEach((item, i) => {
 						HP[i] = parseInt(item.HP);
-						NUM[i] = parseInt(item.#);
+						NUM[i] = parseInt(item.);
 						STR[i] = parseInt(item.Attack);
 						DEF[i] = parseInt(item.Defense);
 					});
@@ -137,15 +137,12 @@
 		    var x_scale = d3.scaleLinear()
 		                  .domain([d3.min(NUM), d3.max(NUM)])
 		                  .range([0, width - 100]);
-				var y_scale = d3.scaleLinear()
-		                  .domain([d3.min(HP), d3.max(HP)])
-		                  .range([0,200]);
+				var y_scale = d3.scaleLinear().domain([d3.min(HP), d3.max(HP)]).range([0,200]);
 
 		    // Add scales to axis
 		    var x_axis = d3.axisBottom()
 		                   .scale(x_scale);
-				var y_axis = d3.axisLeft()
-											 .scale(y_scale);
+				var y_axis = d3.axisLeft().scale(y_scale);
 
 		    //Append group and insert axis
 		    svg.append("g").call(x_axis).attr("transform","translate(20,170)");
