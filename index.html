@@ -110,7 +110,8 @@
 				// var xrange =  [0,3];
 				// var yrange = [0, 500];
 
-				console.log(filtered)
+				data = filtered;
+				console.log = filtered;
 				var svg = d3.select("body")
                 .append("svg")
                 .attr("height", 500)
@@ -131,7 +132,7 @@
 		    //Append group and insert axis
 		    svg.append("g").call(x_axis).attr("transform","translate(20,420)");
 				svg.append("g").call(y_axis).attr("transform","translate(20,20)");
-				svg.append("g").selectAll().data(filtered).enter().append("rect")
+				svg.append("g").selectAll().data(data).enter().append("rect")
 												.attr("height", 30)
 												.attr("width", 30)
 												.attr("x", 10)
