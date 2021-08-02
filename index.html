@@ -91,12 +91,8 @@
 				const poke_ids = [1,4,7];
 				var new_i = 0;
 				var filtered = [];
-				var HP = [];
-				var NUM = [];
-				var STR = [];
-				var DEF = [];
-
 				var width = Math.floor(window.innerWidth * 0.28);
+
 				async function init() {
 					const data = await d3.csv("/pokemon/data/pokemon.csv");
 					data.forEach((item, i) => {
@@ -106,22 +102,7 @@
 						}
 					});
 				  new_i = 0;
-
-					filtered.forEach((item, i) => {
-						HP[i] = parseInt(item.HP);
-						NUM[i] = item.Num;
-						STR[i] = parseInt(item.Attack);
-						DEF[i] = parseInt(item.Defense);
-					});
 				};
-
-
-
-
-				console.log(HP);
-				console.log(NUM);
-				console.log(STR);
-				console.log(DEF);
 
 
 				// var xdomain = [0,3];
@@ -151,7 +132,7 @@
 		    svg.append("g").call(x_axis).attr("transform","translate(20,420)");
 				svg.append("g").call(y_axis).attr("transform","translate(20,20)");
 				svg.append("g").selectAll().data(filtered).enter().append("rect")
-												.attr("height", y_scale(function(d){return d.HP})
+												.attr("height", y_scale(function(d){return d.HP;})
 												.attr("width", x_scale(20);
 				//function("")
 
