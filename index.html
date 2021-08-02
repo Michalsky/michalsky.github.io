@@ -130,13 +130,14 @@
 				var y_axis = d3.axisLeft().scale(y_scale);
 
 		    //Append group and insert axis
+				svg.append("g").call(d3.selectAll('rect').data(data).enter().append("rect").attr("x", function(d) { return x_scale(d.Num); })
+         .attr("y", function(d) { return y_scale(d.HP); })
+         .attr("width", x_scale.bandwidth())
+         .attr("height", function(d) { return height - y_scale(d.HP); });
 		    svg.append("g").call(x_axis).attr("transform","translate(20,420)");
 				svg.append("g").call(y_axis).attr("transform","translate(20,20)");
-				svg.append("g").call(d3.selectAll('rect').data(data).enter().append("rect")
-												.attr("height", "30")
-												.attr("width", "30")
-												.attr("x", "10")
-												.attr("y", "20"));
+
+
 				//function("")
 
 			</script>
