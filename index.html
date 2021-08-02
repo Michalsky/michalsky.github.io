@@ -145,7 +145,7 @@
 
 				function makeSTRChart(){
 					console.log("STR")
-					d3.select(".bars").selectAll('rect').data(filtered).enter().attr("x", function(d) { return x_scale(d.Num); })
+					d3.select('body').select('svg').select(".bars").selectAll('rect').data(filtered).enter().attr("x", function(d) { return x_scale(d.Num); })
 	         .attr("y", function(d) { return y_scale(d.STR); })
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.STR); })
