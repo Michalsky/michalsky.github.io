@@ -134,7 +134,7 @@
 				svg.append("g").selectAll().data(filtered).enter().append("rect")
 												.attr("height", y_scale(30))
 												.attr("width", 30)
-												.attr("x", x_scale(4))
+												.attr("x", x_scale(function(d,i){return parseInt(d.Num);}))
 												.attr("y", 20);
 				//function("")
 
