@@ -117,7 +117,7 @@
 
 
 
-				console.log(d3.max(HP));
+
 				console.log(HP);
 				console.log(NUM);
 				console.log(STR);
@@ -141,7 +141,7 @@
 		    var x_scale = d3.scaleBand()
 		                  .domain([1,4,7])
 		                  .range([0, width - 100]);
-				var y_scale = d3.scaleLinear().domain([0,d3.max(HP)]).range([0,400]);
+				var y_scale = d3.scaleLinear().domain([0,Math.max(HP)]).range([0,400]);
 
 		    // Add scales to axis
 		    var x_axis = d3.axisBottom().scale(x_scale);
@@ -150,7 +150,7 @@
 		    //Append group and insert axis
 		    svg.append("g").call(x_axis).attr("transform","translate(20,420)");
 				svg.append("g").call(y_axis).attr("transform","translate(20,20)");
-				function("")
+				//function("")
 
 			</script>
 		  <img src='logo.png' class='myLogo'/>
