@@ -102,45 +102,34 @@
 						}
 					});
 				  new_i = 0;
+
+					data = filtered;
+					console.log = filtered;
+					var svg = d3.select("body")
+	                .append("svg")
+	                .attr("height", 500)
+									.attr("width", width)
+									.attr("bottom", 20);
+
+					var aNum = ["1","4","7"];
+			    // Create scale
+			    var x_scale = d3.scaleBand()
+			                  .domain([1,4,7])
+			                  .range([0, width - 100]);
+					var y_scale = d3.scaleLinear().domain([99,0]).range([0,400]);
+
+			    // Add scales to axis
+			    var x_axis = d3.axisBottom().scale(x_scale);
+					var y_axis = d3.axisLeft().scale(y_scale);
+
+			    //Append group and insert axis
+					svg.append("g").selectAll('rect').data(data).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
+	         .attr("y", function(d) { return y_scale(d.HP); })
+	         .attr("width", x_scale.bandwidth())
+	         .attr("height", function(d) { return height - y_scale(d.HP); });
+			    svg.append("g").call(x_axis).attr("transform","translate(20,420)");
+					svg.append("g").call(y_axis).attr("transform","translate(20,20)");					
 				};
-
-
-				// var xdomain = [0,3];
-				// var ydomain = [0,1];
-				// var xrange =  [0,3];
-				// var yrange = [0, 500];
-
-				data = filtered;
-				console.log = filtered;
-				var svg = d3.select("body")
-                .append("svg")
-                .attr("height", 500)
-								.attr("width", width)
-								.attr("bottom", 20);
-
-				var aNum = ["1","4","7"];
-		    // Create scale
-		    var x_scale = d3.scaleBand()
-		                  .domain([1,4,7])
-		                  .range([0, width - 100]);
-				var y_scale = d3.scaleLinear().domain([99,0]).range([0,400]);
-
-		    // Add scales to axis
-		    var x_axis = d3.axisBottom().scale(x_scale);
-				var y_axis = d3.axisLeft().scale(y_scale);
-				d3.selectAll("rect").data(data).enter().append("rect")
-
-		    //Append group and insert axis
-				svg.append("g").selectAll('rect').data(data).enter().append('rect').attr("x", function(d) { return x_scale(d.Num); })
-         .attr("y", function(d) { return y_scale(d.HP); })
-         .attr("width", x_scale.bandwidth())
-         .attr("height", function(d) { return height - y_scale(d.HP); });
-		    svg.append("g").call(x_axis).attr("transform","translate(20,420)");
-				svg.append("g").call(y_axis).attr("transform","translate(20,20)");
-
-
-				//function("")
-
 			</script>
 		  <img src='logo.png' class='myLogo'/>
 			<div class="myBulbasaurDiv">
