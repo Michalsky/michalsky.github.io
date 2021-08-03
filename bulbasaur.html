@@ -101,7 +101,8 @@
 		function showMeMore(i){
 			//Append group and insert axis
 			var photo_path = "/pokemon/images/" + i + ".png"
-			d3.select("#photo").html('div').attr("background-image", photo_path);
+			d3.select("#photo").append('div').attr("background-image", photo_path);
+			console.log("here")
 			// d3.selectAll("rect").data(filtered).transition().duration(1000).attr("x", function(d) { return x_scale(d.Num); })
 			//  .attr("y", function(d) { return y_scale(d.HP); })
 			//  .attr("width", x_scale.bandwidth())
