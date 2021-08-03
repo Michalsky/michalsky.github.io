@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
 <script src='https://d3js.org/d3.v5.min.js'></script>
 	<head>
 		<meta charset="UTF-8" />
@@ -7,33 +8,33 @@
 			name="viewport"
 			path1tent="width=device-width,
 					initial-scale=1.0"/>
-		<title>I choose you, Charmander!</title>
+		<title>I choose you, Bulbasaur!</title>
 	</head>
 	<style>
-    .myCharmanderDiv {
-      border: 5px outset red;
+    .myPoke1Div {
+      border: 5px outset green;
       position: absolute;
-      border-color: red;
+      border-color: green;
       left: 10px;
       top: 10px;
       height: 200px;
       width: 200px;
       background-image: url('profile-background.jpeg');}
-    .myCharmeleonDiv{
-      border: 5px outset red;
+    .myPoke2Div{
+      border: 5px outset green;
       position: absolute;
       left: 10px;
       top: 230px;
-      border-color: red;
+      border-color: green;
       height: 200px;
       width: 200px;
       background-image: url('profile-background.jpeg');}
-    .myCharizardDiv{
-      border: 5px outset red;
+    .myPoke3Div{
+      border: 5px outset green;
       position: absolute;
       left: 10px;
       top: 460px;
-      border-color: red;
+      border-color: green;
       height: 200px;
       width: 200px;
       background-image: url('profile-background.jpeg');
@@ -43,11 +44,29 @@
         position: fixed;
         right: 10px;
         bottom: 10px;
-        border-color: green;
+        border-color: black;
         height: 200px;
         width: 200px;
         }
-
+				.myStory{
+					position: fixed;
+					border: 5px outset green;
+					border-color: green;
+					top: 20px;
+					bottom: 20px;
+					left: 300px;
+					width: 60%;
+					background-image: url('pokedex.png');
+					text-align: center;
+				}
+				.myPhoto{
+					position: fixed;
+					top: 100px;
+					bottom: 200px;
+					left: 310px;
+					width: 40%;
+					z-index: 2;
+				}
       body {
         position: absolute;
       background-image: url('pallet-town.jpeg');
@@ -59,28 +78,200 @@
         width: 200px;
       }
   </style>
-  <body>
-    <div class="myCharmanderDiv">
-      <input type="image" data-toggle="tooltip" title="Tell me more about Charmander!" src="/pokemon/images/4.png" id="charmander"/>
+  <body onload="init()">
+		<script>
+		const poke_ids = [1,2,3];
+		var new_i = 0;
+		var filtered = [];
+		var width = Math.floor(window.innerWidth * 0.5);
+
+		async function init(){
+			const data = await d3.csv("/pokemon/data/pokemon.csv");
+			data.forEach((item, i) => {
+				if(poke_ids.includes(i+1)){
+					filtered[new_i] = item;
+					new_i++;
+				}
+			});
+
+			//Annotation
+
+			// Features of the annotation
+			// const annotations = [
+			// 	{
+			// 		color:["#00cc99"],
+			// 		note: {
+			// 			label: "20",
+			// 			title: "HP"
+			// 		},
+			// 		x: 100,
+			// 		y: 100,
+			// 		dy: 100,
+			// 		dx: 100
+			// 	}
+			// ];
+
+
+
+			var svg = d3.select("body")
+							.append("svg").attr("transform", "translate(500,40)")
+							.attr("height", 500)
+							.attr("width", width)
+							.attr("bottom", 20)
+							.attr("z-index", 2);
+
+			svg.append("text")
+				.attr("x", width/3)
+				.attr("y", 20)
+				.attr("text-anchor", "middle")
+				.attr("id", "title")
+				.attr("z-index", 3)
+				.style("font-size", "24px")
+				.style("font-family", "American Typewriter")
+				.style("font-weight", "bold")
+				.text("Choose a Pokemon for more details!");
+			new_i = 0;
+			// Add annotation to the chart
+
+			svg.append("g").attr("id", "annotation");
+			//Append group and insert axis
+		};
+
+
+		var avatar = false;
+		function getAnnotations(i){
+			console.log(filtered[i].Color);
+			console.log(filtered[i].HP);
+			console.log(filtered[i].Attack);
+			console.log(filtered[i].Defense);
+			console.log(filtered[i].SpAttack);
+			console.log(filtered[i].SpDefense);
+			console.log(filtered[i].Speed);
+			console.log(filtered[i].Type);
+			var annotations = [
+				{
+					color:[filtered[i].Color],
+					note: {
+						label: filtered[i].HP,
+						title: "HP"
+					},
+					x: 360,
+					y: 180,
+					dy: -100,
+					dx: 100
+				},
+				{
+					color:[filtered[i].Color],
+					note: {
+						label: filtered[i].Attack,
+						title: "Attack"
+					},
+					x: 360,
+					y: 210,
+					dy: -80,
+					dx: 100
+				},
+				{
+					color:[filtered[i].Color],
+					note: {
+						label: filtered[i].Defense,
+						title: "Defense"
+					},
+					x: 360,
+					y: 240,
+					dy: -50,
+					dx: 100
+				},
+				{
+					color:[filtered[i].Color],
+					note: {
+						label: filtered[i].SpAttack,
+						title: "Spell Attack"
+					},
+					x: 360,
+					y: 260,
+					dy: -15,
+					dx: 100
+				},
+				{
+					color:[filtered[i].Color],
+					note: {
+						label: filtered[i].SpDefense,
+						title: "Spell Defense"
+					},
+					x: 360,
+					y: 280,
+					dy: 33,
+					dx: 100
+				},
+				{
+					color:[filtered[i].Color],
+					note: {
+						label: filtered[i].Type,
+						title: "Type"
+					},
+					x: 360,
+					y: 300,
+					dy: 66,
+					dx: 100
+				},{
+					color:[filtered[i].Color],
+					note: {
+						label: filtered[i].Speed,
+						title: "Speed"
+					},
+					x: 360,
+					y: 320,
+					dy: 100,
+					dx: 100
+				}
+			];
+			return annotations;
+		};
+
+		function showMeMore(i){
+			var photo_path = "/pokemon/images/" + i + ".png"
+			var name = filtered[i-1].Name;
+			if(!avatar){
+				d3.select("#stage").append('img')
+							.attr("src", photo_path)
+							.attr("class", "myPhoto")
+							.attr("id", "photo");
+				avatar = true;
+				d3.select("#title").text(name).style("font-size", "24px")
+				.style("font-family", "American Typewriter")
+				.style("font-weight", "bold");
+				const stats = getAnnotations(i-1);
+				const makeAnnotations = d3.annotation()
+					.annotations(stats);
+				d3.select("#annotation").call(makeAnnotations);
+			}else{
+				d3.select("#photo").attr("src", photo_path);
+				d3.select("#title").text(name).style("font-size", "24px")
+				.style("font-family", "American Typewriter")
+				.style("font-weight", "bold");
+				const stats = getAnnotations(i-1);
+				const makeAnnotations = d3.annotation()
+					.annotations(stats);
+				d3.select("#annotation").call(makeAnnotations);
+			}
+			return annotations;
+		};
+
+		</script>
+    <div class="myPoke1Div">
+      <input type="image" data-toggle="tooltip" title="Tell me more about Charmander!" onclick="showMeMore(1)" src="/pokemon/images/4.png" />
     </div>
-    <div class="myCharmeleonDiv">
-      <input type="image" data-toggle="tooltip" title="Tell me more about Charmeleon!" src="/pokemon/images/5.png" id="charmeleon"/>
+    <div class="myPoke2Div">
+      <input type="image" data-toggle="tooltip" title="Tell me more about Charmeleon!" onclick="showMeMore(2)" src="/pokemon/images/5.png" />
     </div>
-    <div class="myCharizardDiv">
-      <input type="image" data-toggle="tooltip" title="Tell me more about Charizard!" src="/pokemon/images/6.png" id="charizard"/>
+    <div class="myPoke3Div">
+      <input type="image" data-toggle="tooltip" title="Tell me more about Charizard!" onclick="showMeMore(3)" src="/pokemon/images/6.png"/>
     </div>
     <div class="myOaksLabDiv">
       <input type="image" data-toggle="tooltip" title="Let me choose another pokemon!" src="choice.png" onclick="location.href='index.html';" id="oakslab"/>
     </div>
-	<script>
-    var charmander = d3.select("#charmander");
-    var charmeleon = d3.select("#charmeleon");
-    var charizard = d3.select("#charizard");
-
-    async function init() {
-      const data = await d3.csv('/pokemon/data/pokemon.csv');
-      console.log(data);
-    }
-	</script>
+		<div class="myStory" id="stage">
+		</div>
 	</body>
 </html>
