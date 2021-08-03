@@ -126,7 +126,7 @@
 				.attr("text-anchor", "middle")
 				.attr("id", "title")
 				.attr("z-index", 3)
-				.style("font-size", "24px")
+				.style("font-size", "20px")
 				.style("font-family", "Trebuchet MS")
 				.style("font-weight", "bold")
 				.text("Choose a Pokemon for more details!");
@@ -238,7 +238,7 @@
 							.attr("class", "myPhoto")
 							.attr("id", "photo");
 				avatar = true;
-				d3.select("#title").text(name).style("font-size", "24px")
+				d3.select("#title").text(name).style("font-size", "20px")
 				.style("font-family", "Trebuchet MS")
 				.style("font-weight", "bold");
 				const stats = getAnnotations(i-1);
@@ -247,7 +247,7 @@
 				d3.select("#annotation").call(makeAnnotations);
 			}else{
 				d3.select("#photo").attr("src", photo_path);
-				d3.select("#title").text(name).style("font-size", "24px")
+				d3.select("#title").text(name).style("font-size", "20px")
 				.style("font-family", "Trebuchet MS")
 				.style("font-weight", "bold");
 				const stats = getAnnotations(i-1);
