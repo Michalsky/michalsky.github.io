@@ -111,7 +111,7 @@
 							.attr("id", "photo");
 				avatar = true;
 			}else{
-				d3.select("#photo").attr("background-image", photo_path);
+				d3.select("#photo").attr("src", photo_path);
 			}
 
 			// d3.selectAll("rect").data(filtered).transition().duration(1000).attr("x", function(d) { return x_scale(d.Num); })
