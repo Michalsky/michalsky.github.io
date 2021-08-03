@@ -58,9 +58,10 @@
 				.myPhoto{
 					position: fixed;
 					top: 200px;
-					bottom: 30px;
+					bottom: 100px;
 					left: 390px;
 					width: 40%;
+					z-index: 2;
 				}
       body {
         position: absolute;
@@ -90,6 +91,7 @@
 
 
 			});
+
 			var svg = d3.select("body")
 							.append("svg")
 							.attr("height", 500)
@@ -109,8 +111,7 @@
 							.attr("id", "photo");
 				avatar = true;
 			}else{
-				d3.select("#photo").append('div')
-							.attr("background-image", photo_path);
+				d3.select("#photo").attr("background-image", photo_path);
 			}
 
 			// d3.selectAll("rect").data(filtered).transition().duration(1000).attr("x", function(d) { return x_scale(d.Num); })
