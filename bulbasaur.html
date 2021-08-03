@@ -59,7 +59,7 @@
 					position: fixed;
 					top: 100px;
 					bottom: 200px;
-					left: 390px;
+					left: 300px;
 					width: 40%;
 					z-index: 2;
 				}
@@ -113,13 +113,6 @@
 			}else{
 				d3.select("#photo").attr("src", photo_path);
 			}
-
-			// d3.selectAll("rect").data(filtered).transition().duration(1000).attr("x", function(d) { return x_scale(d.Num); })
-			//  .attr("y", function(d) { return y_scale(d.HP); })
-			//  .attr("width", x_scale.bandwidth())
-			//  .attr("height", function(d) { return 400 - y_scale(d.HP); })
-			//  .attr("style",function(d){return "fill:" + d.Color;});
-		 // d3.select("#title").text("Health Points");
 		};
 
 		</script>
@@ -136,6 +129,7 @@
       <input type="image" data-toggle="tooltip" title="Let me choose another pokemon!" src="choice.png" onclick="location.href='index.html';" id="oakslab"/>
     </div>
 		<div class="myStory" id="stage">
+			<p>Choose a pokemon for more details!</p>
 		</div>
 	<script>
     var bulbasaur = d3.select("#bulbasaur");
