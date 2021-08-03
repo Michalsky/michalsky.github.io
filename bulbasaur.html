@@ -115,7 +115,7 @@
 		var avatar = false;
 		function showMeMore(i){
 			var photo_path = "/pokemon/images/" + i + ".png"
-			var name = filtered[i].Name;
+			var name = filtered[i-1].Name;
 			if(!avatar){
 				d3.select("#stage").append('img')
 							.attr("src", photo_path)
