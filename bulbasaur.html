@@ -94,7 +94,7 @@
 			});
 
 			var svg = d3.select("body")
-							.append("svg").attr("transform", "translate(300,0)")
+							.append("svg").attr("transform", "translate(500,20)")
 							.attr("height", 500)
 							.attr("width", width)
 							.attr("bottom", 20)
@@ -106,8 +106,9 @@
 				.attr("text-anchor", "middle")
 				.attr("id", "title")
 				.attr("z-index", 3)
-				.style("font-size", "16px")
-				.style("font-family", "courier")
+				.style("font-size", "24px")
+				.style("font-family", "chalkduster")
+				.style("font-weight", "bold")
 				.text("Choose a Pokemon for more details!");
 			new_i = 0;
 			//Append group and insert axis
@@ -123,9 +124,14 @@
 							.attr("class", "myPhoto")
 							.attr("id", "photo");
 				avatar = true;
-				d3.select("#title").text(name);
+				d3.select("#title").text(name).style("font-size", "24px")
+				.style("font-family", "chalkduster")
+				.style("font-weight", "bold");
 			}else{
 				d3.select("#photo").attr("src", photo_path);
+				d3.select("#title").text(name).style("font-size", "24px")
+				.style("font-family", "chalkduster")
+				.style("font-weight", "bold");
 			}
 		};
 
