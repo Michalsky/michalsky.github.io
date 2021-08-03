@@ -155,8 +155,8 @@
 						label: filtered[i].HP,
 						title: "HP"
 					},
-					x: 100,
-					y: 100,
+					x: 250,
+					y: 250,
 					dy: 100,
 					dx: 100
 				},
@@ -166,8 +166,8 @@
 						label: filtered[i].Attack,
 						title: "Attack"
 					},
-					x: 100,
-					y: 100,
+					x: 250,
+					y: 270,
 					dy: 100,
 					dx: 100
 				},
@@ -177,8 +177,8 @@
 						label: filtered[i].Defense,
 						title: "Defense"
 					},
-					x: 100,
-					y: 100,
+					x: 250,
+					y: 290,
 					dy: 100,
 					dx: 100
 				},
@@ -188,8 +188,8 @@
 						label: filtered[i].SpAttack,
 						title: "Spell Attack"
 					},
-					x: 100,
-					y: 100,
+					x: 250,
+					y: 310,
 					dy: 100,
 					dx: 100
 				},
@@ -199,8 +199,8 @@
 						label: filtered[i].SpDefense,
 						title: "Spell Defense"
 					},
-					x: 100,
-					y: 100,
+					x: 250,
+					y: 330,
 					dy: 100,
 					dx: 100
 				},
@@ -210,8 +210,8 @@
 						label: filtered[i].Type,
 						title: "Type"
 					},
-					x: 100,
-					y: 100,
+					x: 250,
+					y: 350,
 					dy: 100,
 					dx: 100
 				},{
@@ -220,8 +220,8 @@
 						label: filtered[i].Speed,
 						title: "Speed"
 					},
-					x: 100,
-					y: 100,
+					x: 250,
+					y: 370,
 					dy: 100,
 					dx: 100
 				}
@@ -240,7 +240,7 @@
 				d3.select("#title").text(name).style("font-size", "24px")
 				.style("font-family", "American Typewriter")
 				.style("font-weight", "bold");
-				const stats = getAnnotations(i);
+				const stats = getAnnotations(i-1);
 				const makeAnnotations = d3.annotation()
 					.annotations(stats);
 				d3.select("#annotation").call(makeAnnotations);
@@ -249,7 +249,7 @@
 				d3.select("#title").text(name).style("font-size", "24px")
 				.style("font-family", "American Typewriter")
 				.style("font-weight", "bold");
-				const stats = getAnnotations(i);
+				const stats = getAnnotations(i-1);
 				const makeAnnotations = d3.annotation()
 					.annotations(stats);
 				d3.select("#annotation").call(makeAnnotations);
