@@ -93,8 +93,8 @@
 				}
 			});
 
-			var svg = d3.select("body").attr("transform", "translate(300,0)")
-							.append("svg")
+			var svg = d3.select("body")
+							.append("svg").attr("transform", "translate(300,0)")
 							.attr("height", 500)
 							.attr("width", width)
 							.attr("bottom", 20)
