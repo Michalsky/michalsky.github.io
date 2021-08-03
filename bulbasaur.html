@@ -107,11 +107,11 @@
 					dy: 100,
 					dx: 100
 				}
-			]
+			];
 
 			// Add annotation to the chart
 			const makeAnnotations = d3.annotation()
-				.annotations(annotations)
+				.annotations(annotations);
 			d3.select("#example1")
 				.append("g")
 				.call(makeAnnotations);
