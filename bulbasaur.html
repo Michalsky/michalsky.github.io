@@ -49,6 +49,8 @@
         }
 				.myStory{
 					position: fixed;
+					border: 5px outset green;
+					border-color: green;
 					top: 20px;
 					bottom: 20px;
 					left: 300px;
@@ -106,13 +108,14 @@
 		var avatar = false;
 		function showMeMore(i){
 			var photo_path = "/pokemon/images/" + i + ".png"
-
+			var name = filtered[i].Name;
 			if(!avatar){
 				d3.select("#stage").append('img')
 							.attr("src", photo_path)
 							.attr("class", "myPhoto")
 							.attr("id", "photo");
 				avatar = true;
+				d3.select("#intro").html(name)
 			}else{
 				d3.select("#photo").attr("src", photo_path);
 			}
@@ -132,18 +135,8 @@
       <input type="image" data-toggle="tooltip" title="Let me choose another pokemon!" src="choice.png" onclick="location.href='index.html';" id="oakslab"/>
     </div>
 		<div class="myStory" id="stage">
-			<p class="center"><b>Choose a pokemon for more details!</b></p>
+			<p class="center" id="intro">Choose a pokemon for more details!</p>
 			<p class="center" id="name"></p>
 		</div>
-	<script>
-    var bulbasaur = d3.select("#bulbasaur");
-    var ivysaur = d3.select("#ivysaur");
-    var venusaur = d3.select("#venusaur");
-
-    async function init() {
-      const data = await d3.csv('/pokemon/data/pokemon.csv');
-      console.log(data);
-    }
-	</script>
 	</body>
 </html>
