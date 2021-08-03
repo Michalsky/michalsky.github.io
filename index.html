@@ -100,9 +100,6 @@
 	</style>
 	<body onload='init()'>
 			<script>
-				var bulbasaur = d3.select("#bulbasaur");
-				var charmander = d3.select("#charmander");
-				var squirtle = d3.select("#squirtle");
 				const poke_ids = [1,4,7];
 				var new_i = 0;
 				var filtered = [];
@@ -155,11 +152,6 @@
         		.text("Health Points");
 				};
 
-
-
-
-
-				console.log(filtered);
 				function makeHPChart(){
 					console.log("HP");
 			    //Append group and insert axis
