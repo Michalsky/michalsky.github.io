@@ -118,7 +118,11 @@
 				var x_axis = d3.axisBottom().scale(x_scale);
 				var y_axis = d3.axisLeft().scale(y_scale);
 
-
+				var svg = d3.select("body")
+								.append("svg")
+								.attr("height", 500)
+								.attr("width", width)
+								.attr("bottom", 20);
 
 
 				async function init(){
@@ -131,22 +135,9 @@
 
 
 					});
-					var svg = d3.select("body")
-									.append("svg")
-									.attr("height", 500)
-									.attr("width", width)
-									.attr("bottom", 20);
+
 				  new_i = 0;
 					//Append group and insert axis
-					svg.append("g").attr("transform", "translate(20,20)").selectAll('rect').data(filtered).enter().append('rect')
-					 .attr("id","bars")
-					 .attr("x", function(d) { return x_scale(d.Num); })
-					 .attr("y", function(d) { return y_scale(d.HP); })
-					 .attr("width", x_scale.bandwidth())
-					 .attr("height", function(d) { return 400 - y_scale(d.HP); })
-					 .attr("style",function(d){return "fill:" + d.Color;});
-					svg.append("g").call(x_axis).attr("transform","translate(20,420)");
-	 				svg.append("g").call(y_axis).attr("transform","translate(20,20)");
 					svg.append("text")
         		.attr("x", width/3)
         		.attr("y", 20)
@@ -154,7 +145,34 @@
 						.attr("id", "title")
         		.style("font-size", "16px")
 						.style("font-family", "American Typewriter")
-        		.text("Health Points");
+        		.text("Click a button to compare statistics!");
+				};
+
+				var nochart = true;
+
+				function clicky(button){
+					if(nochart){
+						svg.append("g").attr("transform", "translate(20,20)").selectAll('rect').data(filtered).enter().append('rect')
+						 .attr("id","bars")
+						 .attr("x", function(d) { return x_scale(d.Num); })
+						 .attr("y", function(d) { return y_scale(d.HP); })
+						 .attr("width", x_scale.bandwidth())
+						 .attr("height", function(d) { return 400 - y_scale(d.HP); })
+						 .attr("style",function(d){return "fill:" + d.Color;});
+						svg.append("g").call(x_axis).attr("transform","translate(20,420)");
+						svg.append("g").call(y_axis).attr("transform","translate(20,20)");
+						nochart=false;
+					}
+
+					if(button=="HP"){
+						makeHPChart();
+					}
+					else if(button=="ATK"){
+						makeSTRChart();
+					}
+					else{
+						makeDEFChart();
+					}
 				};
 
 				function makeHPChart(){
@@ -201,9 +219,9 @@
 				<div class="myNamplate">Squirtle</div>
 			</div>
 			<div class="myChart">Pokemon Readings
-				<button id="HP" onclick="makeHPChart()">Health Points</button>
-				<button id="STR" onclick="makeSTRChart()">Attack</button>
-				<button id="DEF" onclick="makeDEFChart()">Defense</button>
+				<button id="HP" onclick="clicky(HP)">Health Points</button>
+				<button id="STR" onclick="clicky(ATK)">Attack</button>
+				<button id="DEF" onclick="clicky(DEF)">Defense</button>
 			</div>
 			<div class="myStory">
 				<div class="myTextStory">
