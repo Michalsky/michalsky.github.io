@@ -79,7 +79,7 @@
   </style>
   <body>
 		<script>
-		const poke_ids = [1,4,7];
+		const poke_ids = [1,2,3];
 		var new_i = 0;
 		var filtered = [];
 		var width = Math.floor(window.innerWidth * 0.28);
@@ -92,7 +92,8 @@
 					new_i++;
 				}
 
-
+			console.log(data);
+			console.log(filtered);
 			});
 
 			var svg = d3.select("body")
