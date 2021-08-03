@@ -134,12 +134,94 @@
 			// Add annotation to the chart
 			const makeAnnotations = d3.annotation()
 				.annotations(annotations);
-			svg.append("g")
+			svg.append("g").attr("id", "annotation")
 				.call(makeAnnotations);
 			//Append group and insert axis
 		};
-		console.log(filtered);
+
+
 		var avatar = false;
+		function getAnnotations(i){
+			var annotations = [
+				{
+					color:[filtered[i].Color],
+					note: {
+						label: filtered[i].HP,
+						title: "HP"
+					},
+					x: 100,
+					y: 100,
+					dy: 100,
+					dx: 100
+				},
+				{
+					color:[filtered[i].Color],
+					note: {
+						label: filtered[i].Attack,
+						title: "Attack"
+					},
+					x: 100,
+					y: 100,
+					dy: 100,
+					dx: 100
+				},
+				{
+					color:[filtered[i].Color],
+					note: {
+						label: filtered[i].Defense,
+						title: "Defense"
+					},
+					x: 100,
+					y: 100,
+					dy: 100,
+					dx: 100
+				},
+				{
+					color:[filtered[i].Color],
+					note: {
+						label: filtered[i].SpAttack,
+						title: "Spell Attack"
+					},
+					x: 100,
+					y: 100,
+					dy: 100,
+					dx: 100
+				},
+				{
+					color:[filtered[i].Color],
+					note: {
+						label: filtered[i].SpDefense,
+						title: "Spell Defense"
+					},
+					x: 100,
+					y: 100,
+					dy: 100,
+					dx: 100
+				},
+				{
+					color:[filtered[i].Color],
+					note: {
+						label: filtered[i].Type,
+						title: "Type"
+					},
+					x: 100,
+					y: 100,
+					dy: 100,
+					dx: 100
+				},{
+					color:[filtered[i].Color],
+					note: {
+						label: filtered[i].Speed,
+						title: "Speed"
+					},
+					x: 100,
+					y: 100,
+					dy: 100,
+					dx: 100
+				}
+			];
+		};
+
 		function showMeMore(i){
 			var photo_path = "/pokemon/images/" + i + ".png"
 			var name = filtered[i-1].Name;
@@ -152,6 +234,9 @@
 				d3.select("#title").text(name).style("font-size", "24px")
 				.style("font-family", "American Typewriter")
 				.style("font-weight", "bold");
+
+				const stats = getAnnotations();
+				d3.select("#annotation").call(stats)
 			}else{
 				d3.select("#photo").attr("src", photo_path);
 				d3.select("#title").text(name).style("font-size", "24px")
