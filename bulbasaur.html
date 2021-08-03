@@ -97,19 +97,19 @@
 			//Annotation
 
 			// Features of the annotation
-			const annotations = [
-				{
-					color:["#00cc99"],
-					note: {
-						label: "20",
-						title: "HP"
-					},
-					x: 100,
-					y: 100,
-					dy: 100,
-					dx: 100
-				}
-			];
+			// const annotations = [
+			// 	{
+			// 		color:["#00cc99"],
+			// 		note: {
+			// 			label: "20",
+			// 			title: "HP"
+			// 		},
+			// 		x: 100,
+			// 		y: 100,
+			// 		dy: 100,
+			// 		dx: 100
+			// 	}
+			// ];
 
 
 
@@ -132,10 +132,8 @@
 				.text("Choose a Pokemon for more details!");
 			new_i = 0;
 			// Add annotation to the chart
-			const makeAnnotations = d3.annotation()
-				.annotations(annotations);
-			svg.append("g").attr("id", "annotation")
-				.call(makeAnnotations);
+			
+			svg.append("g").attr("id", "annotation");
 			//Append group and insert axis
 		};
 
@@ -235,15 +233,19 @@
 				.style("font-family", "American Typewriter")
 				.style("font-weight", "bold");
 
+				const makeAnnotations = d3.annotation()
+					.annotations(stats);
 				const stats = getAnnotations(i);
-				d3.select("#annotation").call(stats);
+				d3.select("#annotation").call(makeAnnotations);
 			}else{
 				d3.select("#photo").attr("src", photo_path);
 				d3.select("#title").text(name).style("font-size", "24px")
 				.style("font-family", "American Typewriter")
 				.style("font-weight", "bold");
+				const makeAnnotations = d3.annotation()
+					.annotations(stats);
 				const stats = getAnnotations(i);
-				d3.select("#annotation").call(stats);
+				d3.select("#annotation").call(makeAnnotations);
 			}
 		};
 
