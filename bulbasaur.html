@@ -77,7 +77,7 @@
         width: 200px;
       }
   </style>
-  <body>
+  <body onload="init()">
 		<script>
 		const poke_ids = [1,2,3];
 		var new_i = 0;
@@ -91,9 +91,6 @@
 					filtered[new_i] = item;
 					new_i++;
 				}
-
-			console.log(data);
-			console.log(filtered);
 			});
 
 			var svg = d3.select("body")
