@@ -118,7 +118,7 @@
 				var x_axis = d3.axisBottom().scale(x_scale);
 				var y_axis = d3.axisLeft().scale(y_scale);
 
-				
+
 
 
 				async function init(){
@@ -174,7 +174,7 @@
 	         .attr("width", x_scale.bandwidth())
 	         .attr("height", function(d) { return 400 - y_scale(d.Attack); })
 					 .attr("style",function(d){return "fill:" + d.Color;});
-					 d3.select("#title").text("Strength");
+					 d3.select("#title").text("Attack");
 				};
 				function makeDEFChart(){
 					console.log("DEF");
@@ -202,7 +202,7 @@
 			</div>
 			<div class="myChart">Pokemon Readings
 				<button id="HP" onclick="makeHPChart()">Health Points</button>
-				<button id="STR" onclick="makeSTRChart()">Strength</button>
+				<button id="STR" onclick="makeSTRChart()">Attack</button>
 				<button id="DEF" onclick="makeDEFChart()">Defense</button>
 			</div>
 			<div class="myStory">
