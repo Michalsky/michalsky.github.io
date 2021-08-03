@@ -56,6 +56,7 @@
 					left: 300px;
 					width: 60%;
 					background-image: url('pokedex.png');
+					text-align: center;
 				}
 				.myPhoto{
 					position: fixed;
@@ -64,9 +65,6 @@
 					left: 310px;
 					width: 40%;
 					z-index: 2;
-				}
-				.center{
-					text-align: center;
 				}
       body {
         position: absolute;
@@ -102,6 +100,14 @@
 							.attr("height", 500)
 							.attr("width", width)
 							.attr("bottom", 20);
+			svg.append("text")
+				.attr("x", width/3)
+				.attr("y", 20)
+				.attr("text-anchor", "middle")
+				.attr("id", "title")
+				.style("font-size", "16px")
+				.style("font-family", "courier")
+				.text("Choose a Pokemon for more details!");
 			new_i = 0;
 			//Append group and insert axis
 		};
@@ -115,7 +121,7 @@
 							.attr("class", "myPhoto")
 							.attr("id", "photo");
 				avatar = true;
-				d3.select("#intro").html(name);
+				d3.select("#title").text(name);
 			}else{
 				d3.select("#photo").attr("src", photo_path);
 			}
@@ -135,8 +141,6 @@
       <input type="image" data-toggle="tooltip" title="Let me choose another pokemon!" src="choice.png" onclick="location.href='index.html';" id="oakslab"/>
     </div>
 		<div class="myStory" id="stage">
-			<p class="center" id="intro">Choose a pokemon for more details!</p>
-			<p class="center" id="name"></p>
 		</div>
 	</body>
 </html>
