@@ -8,33 +8,33 @@
 			name="viewport"
 			path1tent="width=device-width,
 					initial-scale=1.0"/>
-		<title>I choose you, Bulbasaur!</title>
+		<title>I choose you, Charmander!</title>
 	</head>
 	<style>
     .myPoke1Div {
-      border: 5px outset green;
+      border: 5px outset red;
       position: absolute;
-      border-color: green;
+      border-color: red;
       left: 10px;
       top: 10px;
       height: 200px;
       width: 200px;
       background-image: url('profile-background.jpeg');}
     .myPoke2Div{
-      border: 5px outset green;
+      border: 5px outset red;
       position: absolute;
       left: 10px;
       top: 230px;
-      border-color: green;
+      border-color: red;
       height: 200px;
       width: 200px;
       background-image: url('profile-background.jpeg');}
     .myPoke3Div{
-      border: 5px outset green;
+      border: 5px outset red;
       position: absolute;
       left: 10px;
       top: 460px;
-      border-color: green;
+      border-color: red;
       height: 200px;
       width: 200px;
       background-image: url('profile-background.jpeg');
@@ -50,8 +50,8 @@
         }
 				.myStory{
 					position: fixed;
-					border: 5px outset green;
-					border-color: green;
+					border: 5px outset red;
+					border-color: red;
 					top: 20px;
 					bottom: 20px;
 					left: 300px;
@@ -80,7 +80,7 @@
   </style>
   <body onload="init()">
 		<script>
-		const poke_ids = [1,2,3];
+		const poke_ids = [4,5,6];
 		var new_i = 0;
 		var filtered = [];
 		var width = Math.floor(window.innerWidth * 0.5);
@@ -114,7 +114,7 @@
 
 
 			var svg = d3.select("body")
-							.append("svg").attr("transform", "translate(500,40)")
+							.append("svg").attr("transform", "translate(500,75)")
 							.attr("height", 500)
 							.attr("width", width)
 							.attr("bottom", 20)
@@ -230,7 +230,7 @@
 		};
 
 		function showMeMore(i){
-			var photo_path = "/pokemon/images/" + i + ".png"
+			var photo_path = "/pokemon/images/" + (i+3) + ".png"
 			var name = filtered[i-1].Name;
 			if(!avatar){
 				d3.select("#stage").append('img')
