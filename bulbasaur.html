@@ -57,7 +57,7 @@
 				}
 				.myPhoto{
 					position: fixed;
-					top: 200px;
+					top: 150px;
 					bottom: 100px;
 					left: 390px;
 					width: 40%;
@@ -105,8 +105,8 @@
 			var photo_path = "/pokemon/images/" + i + ".png"
 
 			if(!avatar){
-				d3.select("#stage").append('div')
-							.attr("background-image", photo_path)
+				d3.select("#stage").append('img')
+							.attr("src", photo_path)
 							.attr("class", "myPhoto")
 							.attr("id", "photo");
 				avatar = true;
