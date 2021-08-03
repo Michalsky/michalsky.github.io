@@ -82,7 +82,7 @@
 		const poke_ids = [1,2,3];
 		var new_i = 0;
 		var filtered = [];
-		var width = Math.floor(window.innerWidth * 0.28);
+		var width = Math.floor(window.innerWidth * 0.5);
 
 		async function init(){
 			const data = await d3.csv("/pokemon/data/pokemon.csv");
@@ -94,7 +94,7 @@
 			});
 
 			var svg = d3.select("body")
-							.append("svg").attr("transform", "translate(500,20)")
+							.append("svg").attr("transform", "translate(500,40)")
 							.attr("height", 500)
 							.attr("width", width)
 							.attr("bottom", 20)
@@ -107,7 +107,7 @@
 				.attr("id", "title")
 				.attr("z-index", 3)
 				.style("font-size", "24px")
-				.style("font-family", "chalkduster")
+				.style("font-family", "American Typewriter")
 				.style("font-weight", "bold")
 				.text("Choose a Pokemon for more details!");
 			new_i = 0;
@@ -125,12 +125,12 @@
 							.attr("id", "photo");
 				avatar = true;
 				d3.select("#title").text(name).style("font-size", "24px")
-				.style("font-family", "chalkduster")
+				.style("font-family", "American Typewriter")
 				.style("font-weight", "bold");
 			}else{
 				d3.select("#photo").attr("src", photo_path);
 				d3.select("#title").text(name).style("font-size", "24px")
-				.style("font-family", "chalkduster")
+				.style("font-family", "American Typewriter")
 				.style("font-weight", "bold");
 			}
 		};
