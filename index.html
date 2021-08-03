@@ -139,7 +139,7 @@
 				  new_i = 0;
 					//Append group and insert axis
 					svg.append("text")
-        		.attr("x", width/3)
+        		.attr("x", width/3+10)
         		.attr("y", 20)
         		.attr("text-anchor", "middle")
 						.attr("id", "title")
@@ -150,7 +150,7 @@
 
 				var nochart = true;
 
-				function clicky(button){
+				function clickedButton(button){
 					if(nochart){
 						svg.append("g").attr("transform", "translate(20,20)").selectAll('rect').data(filtered).enter().append('rect')
 						 .attr("id","bars")
@@ -164,10 +164,10 @@
 						nochart=false;
 					}
 
-					if(button=="HP"){
+					if(button==1){
 						makeHPChart();
 					}
-					else if(button=="ATK"){
+					else if(button==2){
 						makeSTRChart();
 					}
 					else{
@@ -219,9 +219,9 @@
 				<div class="myNamplate">Squirtle</div>
 			</div>
 			<div class="myChart">Pokemon Readings
-				<button id="HP" onclick="clicky(HP)">Health Points</button>
-				<button id="STR" onclick="clicky(ATK)">Attack</button>
-				<button id="DEF" onclick="clicky(DEF)">Defense</button>
+				<button id="HP" onclick="clickedButton(1)">Health Points</button>
+				<button id="STR" onclick="clickedButton(2)">Attack</button>
+				<button id="DEF" onclick="clickedButton(3)">Defense</button>
 			</div>
 			<div class="myStory">
 				<div class="myTextStory">
